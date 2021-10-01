@@ -1,41 +1,30 @@
 #include<iostream>
 using namespace std;
-
 int main(){
-    
- char Player1, Player2, ans;
-do{
-   cout << "Rock, Paper, Scissors is a simple game. The rules are: \n Rock beats scissors. \n Scissors beats Paper. \n Paper beats rock.\n";
 
-   cout << "Enter R for rock, P for paper, or S for scissors\n";
+double dueCost, dueInterest, minPayment, balance;
+char Continue;
 
-   cout << "Player1 what is your weapon of choice?" << endl;
-   cin >> Player1;
-   cout << "Player2 what is your weapon of choice?" << endl;
-   cin >> Player2;
+do{ 
+ 	 cout<<"Enter balance due: ";
+	 cin>>balance;
+	 
+	 if(balance <= 1000){
+	  dueInterest = (balance * 0.015);
+	 }else if (balance > 1000){
+	dueInterest = ((balance - 1000) * 0.01) + (1000) * 0.015;}
+	
+	dueCost = balance + dueInterest;
 
-   cout << "ROCK, PAPER, SCISSORS, SHOOT" << endl;
+    minPayment = dueCost<=10? 
+    dueCost : ((dueCost*.1)> 10? (dueCost*.1):10);
 
-       if ((Player1 = ('R' || 'r')) && (Player2 = ('S' || 's'))){
-           (cout << " Player1 wins, Rock breaks scissors \n ");
-       }else if ((Player1 = ('S' || 's')) && (Player2 = ('R' || 'r'))){
-           (cout << "Player2 wins, Rock breaks scissors \n ");
-       }else if ((Player1 = ('P' || 'p')) && (Player2 = ('R' || 'r'))){
-           (cout << "Player1 wins, Paper covers rock \n ");
-       }else if ((Player1 = ('R' || 'r')) && (Player2 = ('P' || 'p'))){
-           (cout << "Player2 wins, Paper covers rock \n ");
-       }else if ((Player1 = ('S' || 's')) && (Player2 = ('P' || 'p'))){
-           (cout << "Player1 wins, Scissors cut paper \n ");
-       }else if ((Player1 = ('P' || 'p')) && (Player2 = ('S' || 's'))){
-           (cout << "Player2 wins, Scissors cut paper \n ");
-       }
-  
-       cout << "Do you want to play again? Press 'Y' for yes or 'N' for no\n";
-       cin >> ans;
-       } while (ans == 'Y' || ans == 'y');
-
-       cout << "Thanks for playing " << endl;
-
-
+	cout<<"Interest on balance:"<< " " << dueCost << endl ;
+	
+	cout<<"Would you like to continue? Press y for yes, n for no \n";
+	cin>> Continue;
+	 
+	}while(Continue =='y' || Continue =='Y');
+	
 return 0;
 }
